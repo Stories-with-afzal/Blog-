@@ -1,0 +1,433 @@
+from pptx import Presentation
+
+from pptx.util import Inches, Pt
+
+from pptx.enum.text import PP_ALIGN
+
+from pptx.dml.color import RGBColor
+
+
+
+# Create a presentation object
+
+presentation = Presentation()
+
+
+
+# Slide layout (0 is title slide, 1 is title and content)
+
+slide_layout = presentation.slide_layouts
+
+
+
+# Define slide content
+
+slides_content = [
+
+    {
+
+        "title": "Afzal and Associates",
+
+        "subtitle": "Your Trusted Legal Partners in Narsingdi",
+
+        "visual": "law_firm_image.jpg",  # Placeholder for the actual image
+
+    },
+
+    {
+
+        "title": "Welcome Message",
+
+        "content": [
+
+            "Good morning/afternoon! We are excited to introduce Afzal and Associates, led by Afzal Hosen Mandal.",
+
+            "Our firm specializes in Civil Litigation, Criminal Defense, and Property Law.",
+
+        ],
+
+        "visual": "team_photo.jpg",
+
+    },
+
+    {
+
+        "title": "Commitment to Excellence",
+
+        "content": [
+
+            "Our mission is to provide top-tier legal support while maintaining a client-focused approach.",
+
+            "We prioritize integrity and professionalism in all our dealings.",
+
+        ],
+
+        "visual": "mission_infographic.jpg",
+
+    },
+
+    {
+
+        "title": "Comprehensive Legal Support",
+
+        "content": [
+
+            "We offer a wide range of legal services:",
+
+            "- Civil Law",
+
+            "- Criminal Defense",
+
+            "- Property Law",
+
+            "- Family Law",
+
+            "- Business & Corporate Law",
+
+            "- Personal Injury Law",
+
+            "- Tax Law",
+
+            "- Cyber Law",
+
+            "- Immigration Law",
+
+            "- Labor & Employment Law",
+
+            "- Intellectual Property Law",
+
+            "- Environmental Law",
+
+            "- Banking & Finance Law",
+
+        ],
+
+        "visual": "services_pie_chart.jpg",
+
+    },
+
+    {
+
+        "title": "Expertise in Civil Litigation",
+
+        "content": [
+
+            "Handling contract disputes, personal injury claims, and other civil cases.",
+
+            "Notable success stories showcasing our effectiveness.",
+
+        ],
+
+        "visual": "civil_case_study.jpg",
+
+    },
+
+    {
+
+        "title": "Protecting Your Rights",
+
+        "content": [
+
+            "Comprehensive defense strategies for clients facing criminal charges.",
+
+            "Areas of focus include theft, fraud, assault, etc.",
+
+        ],
+
+        "visual": "criminal_defense_flowchart.jpg",
+
+    },
+
+    {
+
+        "title": "Navigating Real Estate Transactions",
+
+        "content": [
+
+            "Assistance with property purchases, sales, disputes, and ownership issues.",
+
+            "Services include land registration and property agreements.",
+
+        ],
+
+        "visual": "real_estate_timeline.jpg",
+
+    },
+
+    {
+
+        "title": "Compassionate Support for Families",
+
+        "content": [
+
+            "Covering divorce, child custody, adoption, and family agreements.",
+
+            "Guidance on legal processes related to marriage registration and divorce.",
+
+        ],
+
+        "visual": "family_law_infographic.jpg",
+
+    },
+
+    {
+
+        "title": "Supporting Business Success",
+
+        "content": [
+
+            "Business formation services including incorporation and partnership agreements.",
+
+            "Legal advice on corporate governance and resolving commercial disputes.",
+
+        ],
+
+        "visual": "business_formation_diagram.jpg",
+
+    },
+
+    {
+
+        "title": "Seeking Justice for Injuries",
+
+        "content": [
+
+            "Compensation claims for injuries due to negligence or accidents.",
+
+            "Focus on medical malpractice and workplace accidents.",
+
+        ],
+
+        "visual": "personal_injury_statistics.jpg",
+
+    },
+
+    {
+
+        "title": "Ensuring Compliance and Efficiency",
+
+        "content": [
+
+            "Tax planning strategies to optimize liabilities.",
+
+            "Assistance with compliance and resolving tax-related disputes.",
+
+        ],
+
+        "visual": "tax_planning_graph.jpg",
+
+    },
+
+    {
+
+        "title": "Protecting Your Digital Rights",
+
+        "content": [
+
+            "Guidance on online privacy, data protection, and cybersecurity issues.",
+
+            "Legal support for e-commerce businesses navigating regulatory requirements.",
+
+        ],
+
+        "visual": "cyber_law_infographic.jpg",
+
+    },
+
+    {
+
+        "title": "Facilitating Legal Immigration Processes",
+
+        "content": [
+
+            "Support for visa applications, citizenship, residency, and compliance with immigration laws.",
+
+        ],
+
+        "visual": "immigration_flowchart.jpg",
+
+    },
+
+    {
+
+        "title": "Advocating for Employee Rights",
+
+        "content": [
+
+            "Legal support for employee rights, contract negotiation, and workplace dispute resolution.",
+
+        ],
+
+        "visual": "labor_law_diagram.jpg",
+
+    },
+
+    {
+
+        "title": "Safeguarding Your Innovations",
+
+        "content": [
+
+            "Trademark registration, copyright protection, and IP dispute resolution services.",
+
+        ],
+
+        "visual": "ip_examples.jpg",
+
+    },
+
+    {
+
+        "title": "Commitment to Sustainable Practices",
+
+        "content": [
+
+            "Ensuring compliance with environmental regulations and handling disputes related to pollution or land use.",
+
+        ],
+
+        "visual": "environmental_compliance_chart.jpg",
+
+    },
+
+    {
+
+        "title": "Navigating Financial Regulations",
+
+        "content": [
+
+            "Advising on banking regulations, drafting loan agreements, and resolving financial disputes.",
+
+        ],
+
+        "visual": "banking_flowchart.jpg",
+
+    },
+
+    {
+
+        "title": "What Our Clients Say",
+
+        "content": [
+
+            '"Afzal Hosen Mandal provided exceptional service during my property dispute."',
+
+            '"The team at Afzal helped me navigate my divorce with compassion."',
+
+        ],
+
+        "visual": "client_testimonials.jpg",
+
+    },
+
+    {
+
+        "title": "Get in Touch with Afzal and Associates",
+
+        "content": [
+
+            "Contact Information:",
+
+            "- Email: advafzalhosen@gmail.com",
+
+            "- Phone: +8801726634656",
+
+            "- Address: Upojila Gate, Narsingdi Judge Court Road, Narsingdi, Dhaka, Bangladesh.",
+
+            "- Office Hours: Consultation hours available upon request.",
+
+        ],
+
+        "visual": "google_maps_screenshot.jpg",
+
+    },
+
+    {
+
+        "title": "Firm's Commitment to You",
+
+        "content": [
+
+            "Thank you for your attention!",
+
+            "We are dedicated to providing exceptional legal support tailored to your unique circumstances.",
+
+            "We encourage you to reach out for personalized assistance.",
+
+        ],
+
+        "visual": "closing_image.jpg",
+
+    },
+
+]
+
+
+
+# Create slides
+
+for slide in slides_content:
+
+    if slide.get("content"):  # If there is content for the slide
+
+        slide_obj = presentation.slides.add_slide(slide_layout[1])
+
+        title = slide_obj.shapes.title
+
+        content_box = slide_obj.shapes.placeholders[1]
+
+
+
+        title.text = slide["title"]
+
+        content = "\n".join(slide["content"])
+
+        content_box.text = content
+
+
+
+        # Formatting content box text
+
+        for paragraph in content_box.text_frame.paragraphs:
+
+            paragraph.font.size = Pt(18)
+
+            paragraph.font.color.rgb = RGBColor(0, 0, 0)
+
+            paragraph.alignment = PP_ALIGN.LEFT
+
+
+
+        # Placeholder for visuals - this will not actually insert images
+
+        # In actual implementation, you would add images like:
+
+        # slide_obj.shapes.add_picture(slide["visual"], Inches(1), Inches(1), width=Inches(5))
+
+
+
+    else:  # Title slide
+
+        slide_obj = presentation.slides.add_slide(slide_layout[0])
+
+        title = slide_obj.shapes.title
+
+        subtitle = slide_obj.placeholders[1]
+
+
+
+        title.text = slide["title"]
+
+        subtitle.text = slide["subtitle"]
+
+
+
+# Save the presentation
+
+pptx_file_path = '/mnt/data/Afzal_and_Associates_Presentation.pptx'
+
+presentation.save(pptx_file_path)
+
+
+
+pptx_file_path
